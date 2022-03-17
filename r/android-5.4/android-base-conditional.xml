@@ -1,4 +1,4 @@
-<kernel minlts="5.4.42" />
+<kernel minlts="5.4.61" />
 
 <!-- KEEP ALPHABETICALLY SORTED -->
 <!-- ARM base requirements -->
@@ -52,6 +52,10 @@
 		<value type="bool">y</value>
 	</config>
 	<config>
+		<key>CONFIG_CFI_CLANG</key>
+		<value type="bool">y</value>
+	</config>
+	<config>
 		<key>CONFIG_CP15_BARRIER_EMULATION</key>
 		<value type="bool">y</value>
 	</config>
@@ -99,6 +103,20 @@
 	</config>
 </group>
 
+<!-- x86_64 base requirements -->
+<group>
+	<conditions>
+		<config>
+			<key>CONFIG_X86_64</key>
+			<value type="bool">y</value>
+		</config>
+	</conditions>
+	<config>
+		<key>CONFIG_CFI_CLANG</key>
+		<value type="bool">y</value>
+	</config>
+</group>
+
 <!-- CONFIG_ACPI || CONFIG_OF -->
 <group>
 	<conditions>
@@ -121,20 +139,6 @@
 	</conditions>
 	<config>
 		<key>CONFIG_ACPI</key>
-		<value type="bool">y</value>
-	</config>
-</group>
-
-<!-- CONFIG_IKHEADERS=y || CONFIG_IKHEADERS=m -->
-<group>
-	<conditions>
-		<config>
-			<key>CONFIG_IKHEADERS</key>
-			<value type="tristate">n</value>
-		</config>
-	</conditions>
-	<config>
-		<key>DISALLOW_CONFIG_IKHEADERS_IS_N</key>
 		<value type="bool">y</value>
 	</config>
 </group>
