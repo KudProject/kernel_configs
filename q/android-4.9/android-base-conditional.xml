@@ -101,9 +101,13 @@
 	</config>
 </group>
 
-<!-- (CONFIG_MEMCG && CONFIG_MEMCG_SWAP) || CONFIG_PSI -->
+<!-- CONFIG_ANDROID_LOW_MEMORY_KILLER || (CONFIG_MEMCG && CONFIG_MEMCG_SWAP) || CONFIG_PSI -->
 <group>
 	<conditions>
+		<config>
+			<key>CONFIG_ANDROID_LOW_MEMORY_KILLER</key>
+			<value type="bool">n</value>
+		</config>
 		<config>
 			<key>CONFIG_MEMCG</key>
 			<value type="bool">n</value>
@@ -121,6 +125,10 @@
 <group>
 	<conditions>
 		<config>
+			<key>CONFIG_ANDROID_LOW_MEMORY_KILLER</key>
+			<value type="bool">n</value>
+		</config>
+		<config>
 			<key>CONFIG_PSI</key>
 			<value type="bool">n</value>
 		</config>
@@ -131,6 +139,26 @@
 	</config>
 	<config>
 		<key>CONFIG_MEMCG_SWAP</key>
+		<value type="bool">y</value>
+	</config>
+</group>
+<group>
+	<conditions>
+		<config>
+			<key>CONFIG_MEMCG</key>
+			<value type="bool">n</value>
+		</config>
+		<config>
+			<key>CONFIG_MEMCG_SWAP</key>
+			<value type="bool">n</value>
+		</config>
+		<config>
+			<key>CONFIG_PSI</key>
+			<value type="bool">n</value>
+		</config>
+	</conditions>
+	<config>
+		<key>CONFIG_ANDROID_LOW_MEMORY_KILLER</key>
 		<value type="bool">y</value>
 	</config>
 </group>
